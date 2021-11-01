@@ -5,18 +5,18 @@ import Projects from '../pages/Projects';
 import Photography from '../pages/Photography';
 
 import NavBar from './NavBar';
+import Footer from './Footer';
 const App = ({ children, router }) => {
   return (
     <Box>
-      {/* TODO: pass path to router, use redux? */}
-
       <BrowserRouter>
         <NavBar />
-        <Container maxW="container.md" pt={14}>
+        <Container maxW="container.md" pt={20}>
           <Route path="/" exact component={About}></Route>
           <Route path="/projects" component={Projects}></Route>
           <Route path="/photography" component={Photography}></Route>
         </Container>
+        <Footer />
       </BrowserRouter>
     </Box>
   );
