@@ -17,7 +17,7 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 
 import { Link as RouterLink } from 'react-router-dom';
 
-const LinkItem = ({ href, path, children }) => {
+const LinkItem = ({ href, path, children, isExternal }) => {
   const active = path === href;
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpa.900');
 
@@ -27,6 +27,7 @@ const LinkItem = ({ href, path, children }) => {
       p={2}
       bg={active ? 'glassTeal' : undefined}
       color={active ? '#202023' : inactiveColor}
+      isExternal={isExternal}
     >
       {children}
     </Link>
