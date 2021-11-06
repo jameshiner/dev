@@ -4,7 +4,6 @@ import {
   Link,
   Stack,
   Heading,
-  Button,
   Flex,
   Menu,
   MenuItem,
@@ -18,7 +17,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -26,28 +25,32 @@ import { faKeyboard } from '@fortawesome/free-solid-svg-icons';
 
 import { NAV_BG_LIGHT, NAV_BG_DARK } from '../constants/colors';
 
-/* 
-const LinkItem = ({ href, path, children, isExternal }) => {
-  const active = path === href;
-  const inactiveColor = useColorModeValue('gray200', 'whiteAlpa.900');
-
+const NavLinkItem = ({ href, children, ...props }) => {
+  const { pathname } = useLocation();
+  const active = pathname === href;
+  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900');
+  const activeColor = 'blue.100';
   return (
     <Link
-      href={href}
+      as={RouterLink}
       p={2}
-      bg={active ? 'glassTeal' : undefined}
+      to={href}
+      _focus={{ boxShadow: 'none' }}
+      _hover={{
+        bg: activeColor,
+        color: useColorModeValue(inactiveColor, NAV_BG_DARK),
+      }}
+      bg={active ? activeColor : undefined}
       color={active ? '#202023' : inactiveColor}
-      isExternal={isExternal}
+      {...props}
     >
       {children}
     </Link>
   );
 };
-*/
 
 const NavBar = (props) => {
-  const { colorMode, toggleColorMode } = useColorMode();
-
+  const { toggleColorMode } = useColorMode();
   return (
     <Box
       position="fixed"
@@ -66,38 +69,37 @@ const NavBar = (props) => {
         align="center"
         justify="space-between"
       >
-        <Flex align="center" mr={10}>
+        <Flex align="center" mr={6}>
           <Heading as="h1" size="md" letterSpacing="tighter">
-            <RouterLink to="/" textDecoration="none">
-              <Link
-                as="div"
-                textDecoration="none"
-                display="inline-flex"
-                alignItems="center"
-                style={{ gap: 15 }}
-                pl={2}
-              >
-                <FontAwesomeIcon icon={faKeyboard} size="md" />
-                JamesHiner
-              </Link>
-            </RouterLink>
+            <Link
+              as={RouterLink}
+              to="/"
+              display="inline-flex"
+              alignItems="center"
+              style={{ gap: 15 }}
+              pl={2}
+              _focus={{ boxShadow: 'none' }}
+            >
+              <FontAwesomeIcon icon={faKeyboard} size="lg" />
+              JamesHiner
+            </Link>
           </Heading>
         </Flex>
         <Stack
           direction={{ base: 'column', md: 'row' }}
           display={{ base: 'none', md: 'flex' }}
           width={{ base: 'full', md: 'auto' }}
-          spacing={10}
+          spacing={6}
           alignItems="center"
           flexGrow={1}
           mt={{ base: 4, nmd: 0 }}
         >
-          <RouterLink to="/projects">
-            <Link as="div">Projects</Link>
-          </RouterLink>
-          <RouterLink to="/photography">
-            <Link as="div">Photography</Link>
-          </RouterLink>
+          <NavLinkItem text="Projects" href="/projects">
+            Projects
+          </NavLinkItem>
+          <NavLinkItem text="Projects" href="/photography">
+            Photography
+          </NavLinkItem>
           <Link
             href="https://www.github.com/jameshiner/dev"
             display="inline-flex"
@@ -141,11 +143,11 @@ const NavBar = (props) => {
                 <MenuItem as={RouterLink} to="/">
                   About
                 </MenuItem>
-                <MenuItem as={RouterLink} to="/works">
-                  Works
+                <MenuItem as={RouterLink} to="/projects">
+                  Projects
                 </MenuItem>
-                <MenuItem as={RouterLink} to="/posts">
-                  Posts
+                <MenuItem as={RouterLink} to="/photography">
+                  Photography
                 </MenuItem>
                 <MenuItem
                   as={Link}
@@ -162,4 +164,5 @@ const NavBar = (props) => {
     </Box>
   );
 };
+
 export default NavBar;
