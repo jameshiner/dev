@@ -12,7 +12,7 @@ const projects = [
     sourceUrl:
       'https://github.com/jameshiner/jameshiner.github.io/tree/master/AStarSearch',
     description:
-      'Agent uses the A* Search pathfinding algorithm to find the shortest path between two corners of a grid.',
+      'A* Search pathfinding algorithm to find the shortest path between two corners of a grid.',
   },
   {
     title: 'Smart Rockets',
