@@ -123,6 +123,7 @@ const NavBar = (props) => {
               transition={{ duration: 0.3 }}
             >
               <IconButton
+                aria-label={useColorModeValue('dark-mode', 'light-mode')}
                 onClick={toggleColorMode}
                 icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
                 bg={useColorModeValue('blue.500', 'orange.200')}

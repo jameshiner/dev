@@ -54,6 +54,7 @@ const ProjectCard = ({ title, alt, img, gif, url, sourceUrl, description }) => {
         >
           <Link href={url} isExternal>
             <Image
+              alt={alt}
               rounded={'lg'}
               height={230}
               width={282}
