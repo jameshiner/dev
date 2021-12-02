@@ -9,11 +9,10 @@ import {
   Button,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { NAV_BG_LIGHT, NAV_BG_DARK } from '../constants/colors';
+import { NAV_BG_DARK } from '../constants/colors';
 const { PUBLIC_URL } = process.env;
 
 const ProjectCard = ({ title, alt, img, gif, url, sourceUrl, description }) => {
-  console.log(NAV_BG_LIGHT);
   const gradientBottom = useColorModeValue('blue.100', NAV_BG_DARK);
   const gradientTop = useColorModeValue('white', 'gray.800');
 

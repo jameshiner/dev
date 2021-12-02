@@ -9,8 +9,7 @@ const projects = [
     img: '/img/projects/astar.png',
     gif: '/img/projects/astar.gif',
     url: 'https://jameshiner.github.io/AStarSearch/',
-    sourceUrl:
-      'https://github.com/jameshiner/jameshiner.github.io/tree/master/AStarSearch',
+    sourceUrl: 'https://github.com/jameshiner/jameshiner.github.io/tree/master/AStarSearch',
     description:
       'A* Search pathfinding algorithm to find the shortest path between two corners of a grid.',
   },
@@ -20,8 +19,7 @@ const projects = [
     img: '/img/projects/smartrockets.png',
     gif: '/img/projects/smartrockets.gif',
     url: 'https://jameshiner.github.io/SmartRockets6/',
-    sourceUrl:
-      'https://github.com/jameshiner/jameshiner.github.io/tree/master/SmartRockets6',
+    sourceUrl: 'https://github.com/jameshiner/jameshiner.github.io/tree/master/SmartRockets6',
     description:
       '"Rockets" use machine learning in the form of a genetic algorithm to reach the goal destination.',
   },
@@ -42,10 +40,8 @@ const projects = [
     img: '/img/projects/enigma.png',
     gif: '/img/projects/enigma.gif',
     url: 'https://jameshiner.github.io/Enigma/',
-    sourceUrl:
-      'https://github.com/jameshiner/jameshiner.github.io/tree/master/Enigma',
-    description:
-      'Web app simulation of the machine that was used to encode messages during WW2.',
+    sourceUrl: 'https://github.com/jameshiner/jameshiner.github.io/tree/master/Enigma',
+    description: 'Web app simulation of the machine that was used to encode messages during WW2.',
   },
   {
     title: 'Maze Generator',
@@ -53,8 +49,7 @@ const projects = [
     img: '/img/projects/maze.png',
     gif: '/img/projects/maze.gif',
     url: 'https://jameshiner.github.io/MazeGenerator/',
-    sourceUrl:
-      'https://github.com/jameshiner/jameshiner.github.io/tree/master/MazeGenerator',
+    sourceUrl: 'https://github.com/jameshiner/jameshiner.github.io/tree/master/MazeGenerator',
     description:
       'Agent uses depth-first search and backtracking to traverse a grid and create a maze.',
   },
@@ -64,8 +59,7 @@ const projects = [
     img: '/img/projects/impossible.png',
     gif: '/img/projects/impossible.gif',
     url: 'https://jameshiner.github.io/Impossible/',
-    sourceUrl:
-      'https://github.com/jameshiner/jameshiner.github.io/tree/master/Impossible',
+    sourceUrl: 'https://github.com/jameshiner/jameshiner.github.io/tree/master/Impossible',
     description:
       'Agents attempt to complete levels of the "Impossible Game" using a genetic algorithm.',
   },
@@ -82,7 +76,7 @@ const Projects = () => {
     <div>
       <Section delay={0.1}>
         <Center>
-          <Heading pb={5}>Projects</Heading>
+          <Heading pb={10}>Projects</Heading>
         </Center>
       </Section>
       <Section delay={0.2}>

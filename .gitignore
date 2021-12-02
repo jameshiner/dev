@@ -1,4 +1,5 @@
 *.todo
+.DS_Store
 
 # Logs
 logs

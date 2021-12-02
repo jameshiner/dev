@@ -28,13 +28,14 @@ import { NAV_BG_LIGHT, NAV_BG_DARK } from '../constants/colors';
 const NavLinkItem = ({ href, children, ...props }) => {
   const { pathname } = useLocation();
   const active = pathname === href;
-  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900');
+  const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900');
   const activeColor = 'blue.100';
   return (
     <Link
       as={RouterLink}
       p={2}
       to={href}
+      borderRadius="md"
       _focus={{ boxShadow: 'none' }}
       _hover={{
         bg: activeColor,
@@ -51,6 +52,8 @@ const NavLinkItem = ({ href, children, ...props }) => {
 
 const NavBar = (props) => {
   const { toggleColorMode } = useColorMode();
+  const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900');
+  const activeColor = 'blue.100';
   return (
     <Box
       position="fixed"
@@ -58,6 +61,7 @@ const NavBar = (props) => {
       w="100%"
       bg={useColorModeValue(NAV_BG_LIGHT, NAV_BG_DARK)}
       style={{ backdropFilter: 'blur(10px)' }}
+      boxShadow="lg"
       zIndex={1}
       {...props}
     >
@@ -77,8 +81,10 @@ const NavBar = (props) => {
               display="inline-flex"
               alignItems="center"
               style={{ gap: 15 }}
-              pl={2}
+              // pl={2}
+              p={2}
               _focus={{ boxShadow: 'none' }}
+              _hover={{ textDecoration: 'none' }}
             >
               <FontAwesomeIcon icon={faKeyboard} size="lg" />
               JamesHiner
@@ -105,8 +111,14 @@ const NavBar = (props) => {
             display="inline-flex"
             alignItems="center"
             style={{ gap: 4 }}
-            pl={2}
+            p={2}
             isExternal
+            _hover={{
+              textDecoration: 'none',
+              bg: activeColor,
+              borderRadius: 'md',
+              color: useColorModeValue(inactiveColor, NAV_BG_DARK),
+            }}
           >
             <FontAwesomeIcon icon={faGithub} size="lg" />
             Source
@@ -150,11 +162,7 @@ const NavBar = (props) => {
                 <MenuItem as={RouterLink} to="/photography">
                   Photography
                 </MenuItem>
-                <MenuItem
-                  as={Link}
-                  href="https://www.github.com/jameshiner/dev"
-                  isExternal
-                >
+                <MenuItem as={Link} href="https://www.github.com/jameshiner/dev" isExternal>
                   View Source
                 </MenuItem>
               </MenuList>
