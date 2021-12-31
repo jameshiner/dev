@@ -71,12 +71,12 @@ const ProjectCard = ({ title, alt, img, gif, url, sourceUrl, description }) => {
           </Stack>
           <Box>
             <Stack direction="row" spacing={4} pt={5}>
-              <Link href={url} isExternal>
+              <Link href={url} isExternal _hover={{ textDecoration: 'none' }}>
                 <Button colorScheme="blue" variant="solid">
-                  <Text decoration="none">Demo</Text>
+                  <Text>Demo</Text>
                 </Button>
               </Link>
-              <Link href={sourceUrl} isExternal decoration="none">
+              <Link href={sourceUrl} isExternal _hover={{ textDecoration: 'none' }}>
                 <Button colorScheme="blue" variant="outline">
                   Source
                 </Button>

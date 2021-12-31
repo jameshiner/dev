@@ -4,7 +4,7 @@ const Photography = () => {
     <Box>
       <Center>
         <Text fontSize="8xl" padding={5}>
-          ):
+          :(
         </Text>
       </Center>
       <Center>
