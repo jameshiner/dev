@@ -14,9 +14,17 @@ import WorkItem from '../components/WorkItem';
 
 const jobs = [
   {
+    company: 'Square',
+    role: 'Software Engineer',
+    date: 'Mar 2022 – Present',
+    location: 'Remote',
+    bullets: [
+      'Frontend Engineer on the RST Growth and Engagement Team'
+    ],
+  }, {
     company: 'Wellsky',
     role: 'Software Engineer III',
-    date: 'Mar 2019 – Present',
+    date: 'Mar 2019 – Feb 2022',
     location: 'Remote',
     bullets: [
       'Designed layouts and built frontend logic to implement enhancements and bug fixes for the financial module of Wellsky’s Specialty Care Application to be pushed out at the end of each two week sprint',
