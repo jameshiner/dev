@@ -8,7 +8,6 @@ import {
   Text,
   Image,
 } from '@chakra-ui/react';
-// import { NAV_BG_LIGHT } from '../constants/colors';
 import Section from '../components/Section';
 import WorkItem from '../components/WorkItem';
 
@@ -19,9 +18,13 @@ const jobs = [
     date: 'Mar 2022 – Present',
     location: 'Remote',
     bullets: [
-      'Frontend Engineer on the RST Growth and Engagement Team'
+      'Frontend Engineer on the Square for Restaurants Growth and Engagement team – focusing on new seller onboarding and SaaS conversion',
+      'Aided in building a seamless linear onboarding experience for new sellers to onboard quickly and easily',
+      'Implemented a first month free trial for new sellers, which led to a 3.5% increase in SaaS conversions – a statistically significant increase that was projected to increase SaaS revenue by up to $3M annually',
+      'Performed technical screening interviews for potential candidates, assessing their qualifications and skills in order to deliver feedback on their suitability for roles within the organization',
     ],
-  }, {
+  },
+  {
     company: 'Wellsky',
     role: 'Software Engineer III',
     date: 'Mar 2019 – Feb 2022',
@@ -35,7 +38,7 @@ const jobs = [
   {
     company: 'HCS (acquired by Wellsky)',
     role: 'Frontend Web Developer',
-    date: 'Oct 2017 - Mar 2019',
+    date: 'Oct 2017 – Mar 2019',
     location: 'Wall, NJ',
     bullets: [
       'Created/maintained options for HCS’s modern web application using ExtJS',
@@ -62,15 +65,6 @@ const About = () => {
         <Image src="/img/banner.jpeg" borderRadius="lg" alt="banner"></Image>
       </Section>
       <Section delay={0.2}>
-        {/* <Box
-          borderRadius="lg"
-          mb={6}
-          p={3}
-          textAlign="center"
-          bg={useColorModeValue(NAV_BG_LIGHT, 'whiteAlpha.100')}
-        >
-          Hello - I&apos;m a frontend developer currently based in New Jersey!
-        </Box> */}
         <Box display={{ md: 'flex' }}>
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
@@ -78,7 +72,12 @@ const About = () => {
             </Heading>
             <p>Frontend Web Developer</p>
           </Box>
-          <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} textAlign="center">
+          <Box
+            flexShrink={0}
+            mt={{ base: 4, md: 0 }}
+            ml={{ md: 6 }}
+            textAlign="center"
+          >
             <Image
               borderColor="whiteAlpha.800"
               borderWidth={2}
@@ -92,19 +91,25 @@ const About = () => {
           </Box>
         </Box>
       </Section>
-      {/* <Section delay={0.3}>
+      <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
           About
         </Heading>
-        <Text style={{ textIndent: 20 }}></Text>
-      </Section> */}
+        <Text style={{ textIndent: 20 }}>Hello, I'm JJ</Text>
+      </Section>
       <Section delay={0.4}>
         <Heading as="h3" variant="section-title">
           Work Experience
         </Heading>
         <Accordion defaultIndex={[]} allowMultiple>
           {jobs.map((r, i) => (
-            <WorkItem company={r.company} role={r.role} date={r.date} location={r.location} key={i}>
+            <WorkItem
+              company={r.company}
+              role={r.role}
+              date={r.date}
+              location={r.location}
+              key={i}
+            >
               <UnorderedList pt={1}>
                 {r.bullets.map((r, i) => (
                   <ListItem key={i} pb={2}>
