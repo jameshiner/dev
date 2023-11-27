@@ -91,12 +91,12 @@ const About = () => {
           </Box>
         </Box>
       </Section>
-      <Section delay={0.3}>
+      {/* <Section delay={0.3}>
         <Heading as="h3" variant="section-title">
           About
         </Heading>
-        <Text style={{ textIndent: 20 }}>Hello, I'm JJ</Text>
-      </Section>
+        <Text style={{ textIndent: 20 }}>Hello, I'm JJ.</Text>
+      </Section> */}
       <Section delay={0.4}>
         <Heading as="h3" variant="section-title">
           Work Experience
