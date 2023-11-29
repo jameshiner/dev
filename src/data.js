@@ -10,6 +10,7 @@ export const JOBS = [
       'Implemented a first month free trial for new sellers, which led to a 3.5x increase in SaaS conversions – a statistically significant increase that was projected to increase SaaS revenue by up to $3M annually',
       'Leveraged ChatGPT to power sample menu creation, tailoring menus to specific user inputs, simplifying the process and reducing intimidation for new sellers - this now accounts for the majority of menu creations across Square for Restaurants',
       'Performed technical screening interviews for potential candidates, assessing their qualifications and skills in order to deliver feedback on their suitability for roles within the organization',
+      'Formulated comprehensive engineering designs to strategically plan and guide software projects, ensuring a structured and efficient development process from conception to implementation',
     ],
   },
   {
@@ -18,9 +19,9 @@ export const JOBS = [
     date: 'Mar 2019 – Feb 2022',
     location: 'Remote',
     bullets: [
-      'Designed layouts and built frontend logic to implement enhancements and bug fixes for the financial module of Wellsky’s Specialty Care Application to be pushed out at the end of each two week sprint',
-      'Worked closely with backend developers and product managers to determine the best solution to implement in order to improve client experience',
-      'Developed self-guided curriculum to be used during onboarding that goes over setting up a local development environment and learning ExtJS',
+      'Designed layouts and built frontend logic to implement new features and bug fixes for the financial module of Wellsky’s Specialty Care Application',
+      'Collaborated with backend developers and product managers to strategize and implement solutions, enhancing overall client experience',
+      'Pioneered the creation of a self-guided onboarding curriculum for new hires, covering crucial aspects such as setting up local development environments, mastering ExtJS, and leveraging GitHub for effective codebase contributions',
     ],
   },
   {
