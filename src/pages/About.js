@@ -7,56 +7,14 @@ import {
   Heading,
   Text,
   Image,
+  Tag,
+  WrapItem,
+  Flex,
+  Wrap,
 } from '@chakra-ui/react';
 import Section from '../components/Section';
 import WorkItem from '../components/WorkItem';
-
-const jobs = [
-  {
-    company: 'Square',
-    role: 'Software Engineer',
-    date: 'Mar 2022 – Present',
-    location: 'Remote',
-    bullets: [
-      'Frontend Engineer on the Square for Restaurants Growth and Engagement team – focusing on new seller onboarding and SaaS conversion',
-      'Aided in building a seamless linear onboarding experience for new sellers to onboard quickly and easily',
-      'Implemented a first month free trial for new sellers, which led to a 3.5% increase in SaaS conversions – a statistically significant increase that was projected to increase SaaS revenue by up to $3M annually',
-      'Performed technical screening interviews for potential candidates, assessing their qualifications and skills in order to deliver feedback on their suitability for roles within the organization',
-    ],
-  },
-  {
-    company: 'Wellsky',
-    role: 'Software Engineer III',
-    date: 'Mar 2019 – Feb 2022',
-    location: 'Remote',
-    bullets: [
-      'Designed layouts and built frontend logic to implement enhancements and bug fixes for the financial module of Wellsky’s Specialty Care Application to be pushed out at the end of each two week sprint',
-      'Worked closely with backend developers and product managers to determine the best solution to implement in order to improve client experience',
-      'Developed self-guided curriculum to be used during onboarding that goes over setting up a local development environment and learning ExtJS',
-    ],
-  },
-  {
-    company: 'HCS (acquired by Wellsky)',
-    role: 'Frontend Web Developer',
-    date: 'Oct 2017 – Mar 2019',
-    location: 'Wall, NJ',
-    bullets: [
-      'Created/maintained options for HCS’s modern web application using ExtJS',
-      'Designed and coded an online Patient Portal proof of concept deployed on a MERN stack',
-      'Leveraged the JIRA and Tempo APIs to create scripts that updated data to new standards',
-    ],
-  },
-  {
-    company: 'CSols Inc.',
-    role: 'Junior LIMS Consultant',
-    date: 'Sept 2015 – Sept 2017',
-    location: 'Newark, DE',
-    bullets: [
-      'Master data loading using database staging tables and SQL Transformations.',
-      'Created end-user development presentation to train new employees on SampleManager LIMS',
-    ],
-  },
-];
+import { JOBS, SKILLS } from '../data';
 
 const About = () => {
   return (
@@ -71,6 +29,7 @@ const About = () => {
               James Hiner
             </Heading>
             <p>Frontend Web Developer</p>
+            <p>Denver, CO</p>
           </Box>
           <Box
             flexShrink={0}
@@ -102,18 +61,18 @@ const About = () => {
           Work Experience
         </Heading>
         <Accordion defaultIndex={[]} allowMultiple>
-          {jobs.map((r, i) => (
+          {JOBS.map((job, i) => (
             <WorkItem
-              company={r.company}
-              role={r.role}
-              date={r.date}
-              location={r.location}
+              company={job.company}
+              role={job.role}
+              date={job.date}
+              location={job.location}
               key={i}
             >
               <UnorderedList pt={1}>
-                {r.bullets.map((r, i) => (
+                {job.bullets.map((bullet, i) => (
                   <ListItem key={i} pb={2}>
-                    {r}
+                    {bullet}
                   </ListItem>
                 ))}
               </UnorderedList>
@@ -125,17 +84,33 @@ const About = () => {
         <Heading as="h3" variant="section-title">
           Education
         </Heading>
-        <Box display={{ md: 'flex' }} px={4}>
+        <Box display={{ md: 'flex' }} pl={4} pr={6}>
           <Box flexGrow={1}>
             <Text fontWeight="bold">University of Delaware</Text>
             <Text>Bachelor Of Science in Computer Science</Text>
           </Box>
-          <Box flexShrink={0} textAlign="center">
+          <Box flexShrink={0} textAlign="right">
             <Text as="i">May 2015</Text>
             <br />
             <Text as="i">Newark, DE</Text>
           </Box>
         </Box>
+      </Section>
+      <Section delay={0.6}>
+        <Heading variant="section-title" pb={3}>
+          Languages & Technologies
+        </Heading>
+        <Wrap spacing={2} justify="flex-start" wrap={true}>
+          {SKILLS.map((skill) => (
+            <WrapItem>
+              <Flex>
+                <Tag size={'md'} variant={'solid'} colorScheme={skill.color}>
+                  {skill.value}
+                </Tag>
+              </Flex>
+            </WrapItem>
+          ))}
+        </Wrap>
       </Section>
     </Container>
   );
