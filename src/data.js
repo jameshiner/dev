@@ -2,15 +2,15 @@ export const JOBS = [
   {
     company: 'Square',
     role: 'Senior Software Engineer',
-    date: 'Mar 2022 – Present',
+    date: 'Mar 2022 – Dec 2023',
     location: 'Remote',
     bullets: [
-      'Frontend Engineer on the Square for Restaurants Growth and Engagement team – focusing on new seller onboarding and SaaS conversion',
-      'Aided in building a seamless linear onboarding experience for new sellers to onboard quickly and easily',
-      'Implemented a first month free trial for new sellers, which led to a 3.5x increase in SaaS conversions – a statistically significant increase that was projected to increase SaaS revenue by up to $3M annually',
+      'Implemented a first month free trial for new sellers leading to a 3.5x increase in SaaS conversions - a statistically significant increase that was projected to boost SaaS revenue by up to $3M annually',
       'Leveraged ChatGPT to power sample menu creation, tailoring menus to specific user inputs, simplifying the process and reducing intimidation for new sellers - this now accounts for the majority of menu creations across Square for Restaurants',
+      'Aided in building a seamless linear onboarding experience for new sellers to onboard quickly and easily',
       'Performed technical screening interviews for potential candidates, assessing their qualifications and skills in order to deliver feedback on their suitability for roles within the organization',
       'Formulated comprehensive engineering designs to strategically plan and guide software projects, ensuring a structured and efficient development process from conception to implementation',
+      'Collaborated with designers to implement user interface improvements, translating design concepts into functional software features',
     ],
   },
   {
@@ -50,22 +50,22 @@ export const JOBS = [
 export const SKILLS = [
   {
     type: 'language',
-    value: 'Java',
-    color: 'teal',
-  },
-  {
-    type: 'language',
     value: 'JavaScript',
     color: 'teal',
   },
   {
     type: 'language',
-    value: 'SQL',
+    value: 'TypeScript',
     color: 'teal',
   },
   {
     type: 'language',
-    value: 'GraphQL',
+    value: 'Java',
+    color: 'teal',
+  },
+  {
+    type: 'language',
+    value: 'SQL',
     color: 'teal',
   },
   {
