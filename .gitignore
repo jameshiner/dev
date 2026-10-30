@@ -40,5 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# personal Claude Code notes (not for the public repo)
+# personal Claude Code files (not for the public repo)
 CLAUDE.local.md
+.claude/settings.local.json

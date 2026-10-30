@@ -45,7 +45,8 @@ Reply with:
 - **Out of scope:** anything nearby that the ticket or roadmap defers to a later ticket.
 - **Open questions:** decisions needed before building, including any the ticket or the
   project leaves open.
-- **Plan:** a short, ordered list of small commits.
+- **Plan:** a short, ordered list of steps. Don't commit while building; changes are
+  reviewed, then committed, during `/wrap-up-ticket`.
 
 Push back on anything that looks overbuilt or that conflicts with the conventions in
 `CLAUDE.md`. Then wait for a go-ahead before writing code.

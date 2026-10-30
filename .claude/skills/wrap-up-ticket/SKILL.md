@@ -38,7 +38,9 @@ If `$ARGUMENTS` is `merged`, or the branch's PR is already merged, skip to **Aft
 
 ## 4. Commit
 
-- Commit remaining work in small, focused commits with plain imperative messages.
+- Commit the work in small, focused commits grouped by change, with plain imperative
+  messages. (Work stays uncommitted during the build so review fixes land before the
+  first commit.)
 - Check `git log <default>..HEAD` for any commit with AI attribution trailers. If one isn't
   pushed yet, offer to reword it; if it's already pushed, flag it instead of rewriting.
 
