@@ -11,7 +11,8 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 - Theme: dark by default with a light option, no library. An inline script in the root
   layout's `<head>` applies a saved `localStorage` choice as `data-theme` before first
   paint; `globals.css` overrides tokens under `[data-theme='light']`.
-- Fonts: Schibsted Grotesk (display) and Geist (text) via `next/font/google`.
+- Fonts: IBM Plex Sans (display) and DM Sans (text) via `next/font/google`, set in the root
+  layout as `--font-display-face` / `--font-text-face`.
 - Content: typed `.ts` data files (no CMS or database)
 - Images: `next/image`. Icons: inline SVGs. Animation: CSS keyframes that respect
   `prefers-reduced-motion`.
@@ -22,7 +23,9 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 - `src/app/`: routes, layouts, and route-level CSS Modules
 - `src/components/`: shared components (sidebar, footer, theme toggle, icons), each with
   its own CSS Module
-- `src/data/`: typed content (`site.ts` holds name, role, links and nav items)
+- `src/data/`: typed content (`site.ts` holds name, role, links and nav items; also jobs,
+  skills, education, projects)
+- `src/lib/`: small helpers (e.g. date formatting)
 - `src/app/api/*/route.ts`: server-side endpoints, when an API key or server fetch is needed
 - `public/img/`: static images
 - Standalone sub-projects get their own route folder and `layout.tsx` so they don't

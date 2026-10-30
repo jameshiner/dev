@@ -12,8 +12,8 @@
   --green: #9fd67a;
   --amber: #f0b45e;
 
-  --font-display: var(--font-schibsted), system-ui, sans-serif;
-  --font-text: var(--font-geist), system-ui, sans-serif;
+  --font-display: var(--font-display-face), system-ui, sans-serif;
+  --font-text: var(--font-text-face), system-ui, sans-serif;
 
   --radius: 14px;
   --transition: 0.2s ease;

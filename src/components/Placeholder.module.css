@@ -1,13 +1,3 @@
-/* Section heading style from the mock: small uppercase accent label. */
-.placeholder h1 {
-  margin-bottom: 12px;
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.placeholder p {
+.text {
   color: var(--text-muted);
 }

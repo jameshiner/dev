@@ -50,9 +50,17 @@ export function MoonIcon(props: IconProps) {
   );
 }
 
-export function CodeIcon(props: IconProps) {
+export function ChevronRightIcon(props: IconProps) {
   return (
     <svg {...stroke} width={14} height={14} {...props}>
+      <path d="m9 6 6 6-6 6" />
+    </svg>
+  );
+}
+
+export function CodeIcon(props: IconProps) {
+  return (
+    <svg {...stroke} {...props}>
       <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
     </svg>
   );
