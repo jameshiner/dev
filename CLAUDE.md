@@ -22,6 +22,8 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 - `public/img/`: static images
 - Standalone sub-projects get their own route folder and `layout.tsx` so they don't
   inherit the main site's styles.
+- `.claude/skills/`: `/start-ticket` and `/wrap-up-ticket` for the workflow below.
+  `.claude/agents/code-reviewer.md`: read-only reviewer that `/wrap-up-ticket` runs.
 
 ## Commands
 
@@ -42,5 +44,18 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 - Keep global CSS to tokens and resets; put component styles in CSS Modules.
 - Keep dependencies minimal; prefer platform features (e.g. `<details>` over a JS accordion).
 - Line endings are normalized to LF via `.gitattributes`.
-- Default branch is `main`; changes land through squash-merged PRs. CI
-  (`.github/workflows/ci.yml`) runs `npm run check` on every PR.
+
+## Workflow
+
+- One Linear issue per branch. Branch off `main` using the issue's Linear branch name (it
+  carries the issue ID, which links the branch and PR to the issue).
+- Leave changes uncommitted while building. Before committing, run `npm run check` and a
+  code review (`/wrap-up-ticket` does both), fix what it finds, then commit in small
+  commits with plain imperative messages.
+- PR title `BOX-N: <issue title>`; body starts with `Closes BOX-N`, then a short list of
+  what changed.
+- `main` is protected by a ruleset: PR required, CI `check` (`.github/workflows/ci.yml`,
+  runs `npm run check`) must pass, no force pushes.
+- Squash-merge only; the squash message is the PR title and head branches auto-delete.
+  Merging closes the Linear issue and Vercel deploys `main` to production.
+- Update this file in the same PR when stack, structure, commands or conventions change.
