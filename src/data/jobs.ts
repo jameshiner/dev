@@ -47,7 +47,7 @@ export const jobs: Job[] = [
     date: 'Oct 2017 – Mar 2019',
     location: 'Wall, NJ',
     summary: 'Web app options in ExtJS and a Patient Portal proof of concept on the MERN stack.',
-    tags: ['ExtJS', 'React', 'Node'],
+    tags: ['ExtJS', 'React', 'JavaScript'],
     bullets: [
       'Created/maintained options for HCS’s modern web application using ExtJS',
       'Designed and coded an online Patient Portal proof of concept deployed on a MERN stack',

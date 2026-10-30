@@ -37,7 +37,6 @@ export default function Home() {
             date={yearsOnly(item.date)}
             title={item.degree}
             meta={item.school}
-            description={item.location}
           />
         ))}
       </Section>
