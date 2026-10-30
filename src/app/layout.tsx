@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Schibsted_Grotesk } from 'next/font/google';
+import { DM_Sans, IBM_Plex_Sans } from 'next/font/google';
 import { Footer } from '@/components/Footer';
 import { Sidebar } from '@/components/Sidebar';
 import { themeScript } from '@/components/theme';
@@ -7,8 +7,9 @@ import { site } from '@/data/site';
 import './globals.css';
 import styles from './layout.module.css';
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist' });
-const schibsted = Schibsted_Grotesk({ subsets: ['latin'], variable: '--font-schibsted' });
+// Display font for the name and big headings; text font for everything else.
+const displayFont = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-display-face' });
+const textFont = DM_Sans({ subsets: ['latin'], variable: '--font-text-face' });
 
 export const metadata: Metadata = {
   title: { default: site.name, template: `%s · ${site.name}` },
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     <html
       lang="en"
       data-theme="dark"
-      className={`${geist.variable} ${schibsted.variable}`}
+      className={`${displayFont.variable} ${textFont.variable}`}
       suppressHydrationWarning
     >
       <head>
