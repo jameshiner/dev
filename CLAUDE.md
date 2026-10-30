@@ -8,8 +8,10 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 
 - Next.js (App Router, TypeScript, `src/` directory), React 19
 - Styling: CSS Modules + CSS custom properties (no Tailwind, no component library)
-- Theme: dark by default with a light option, via `next-themes` (planned for BOX-6; for
-  now `globals.css` follows `prefers-color-scheme`)
+- Theme: dark by default with a light option, no library. An inline script in the root
+  layout's `<head>` applies a saved `localStorage` choice as `data-theme` before first
+  paint; `globals.css` overrides tokens under `[data-theme='light']`.
+- Fonts: Schibsted Grotesk (display) and Geist (text) via `next/font/google`.
 - Content: typed `.ts` data files (no CMS or database)
 - Images: `next/image`. Icons: inline SVGs. Animation: CSS keyframes that respect
   `prefers-reduced-motion`.
@@ -18,6 +20,9 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 ## Structure
 
 - `src/app/`: routes, layouts, and route-level CSS Modules
+- `src/components/`: shared components (sidebar, footer, theme toggle, icons), each with
+  its own CSS Module
+- `src/data/`: typed content (`site.ts` holds name, role, links and nav items)
 - `src/app/api/*/route.ts`: server-side endpoints, when an API key or server fetch is needed
 - `public/img/`: static images
 - Standalone sub-projects get their own route folder and `layout.tsx` so they don't
