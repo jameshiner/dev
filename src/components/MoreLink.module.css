@@ -1,0 +1,18 @@
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-decoration: underline 1px transparent;
+  text-underline-offset: 4px;
+  transition:
+    color var(--transition),
+    text-decoration-color var(--transition);
+}
+
+.more:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
