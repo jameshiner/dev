@@ -1,0 +1,126 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 72px 0 48px;
+}
+
+/* Desktop: stays put while the content column scrolls. Scrolls on its own when the window is
+   too short to fit it (stopgap until BOX-25). */
+@media (min-width: 860px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    overflow-y: auto;
+  }
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.6;
+  object-fit: cover;
+  object-position: 50% 45%;
+  border-radius: var(--radius);
+}
+
+.name {
+  margin-top: 24px;
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.role {
+  margin-top: 12px;
+  color: var(--accent);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.lead {
+  max-width: 340px;
+  margin-top: 14px;
+  color: var(--text-muted);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.navLink::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--border);
+  transition:
+    width var(--transition),
+    background-color var(--transition);
+}
+
+.navLink:hover,
+.navLink[aria-current='page'] {
+  color: var(--text);
+}
+
+.navLink[aria-current='page']::before {
+  width: 44px;
+  background: var(--accent);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color var(--transition);
+}
+
+.social:hover {
+  border-color: var(--accent);
+}
+
+.source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+  transition: color var(--transition);
+}
+
+.source:hover {
+  color: var(--accent);
+}
