@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+/* Thumbnails come in mixed shapes (one is square); crop them all to the same ratio. */
+.thumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.6;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 18px 18px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.description {
+  margin: 6px 0 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Pinned to the bottom so buttons line up across a row of cards. */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
