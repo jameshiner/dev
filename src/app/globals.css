@@ -46,6 +46,11 @@ body {
   overflow-x: clip;
 }
 
+/* Reserve the scrollbar's space on short pages too, so the layout doesn't shift between pages. */
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   min-height: 100dvh;
   color: var(--text);
