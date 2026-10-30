@@ -1,0 +1,7 @@
+/* As many 240px+ columns as fit: one on phones and narrow desktops, two on wider screens. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 8px;
+}

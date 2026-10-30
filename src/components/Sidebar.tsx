@@ -3,6 +3,7 @@ import { site } from '@/data/site';
 import banner from '../../public/img/banner.jpeg';
 import { CodeIcon, GitHubIcon, LinkedInIcon } from './icons';
 import { NavLinks } from './NavLinks';
+import { PillLink } from './PillLink';
 import { ThemeToggle } from './ThemeToggle';
 import styles from './Sidebar.module.css';
 
@@ -35,18 +36,18 @@ export function Sidebar() {
 
       <div className={styles.actions}>
         {SOCIALS.map(({ href, label, Icon }) => (
-          <a key={href} href={href} className={styles.social} target="_blank" rel="noreferrer">
+          <PillLink key={href} href={href}>
             <Icon />
             {label}
-          </a>
+          </PillLink>
         ))}
         <ThemeToggle />
       </div>
 
-      <a href={site.links.source} className={styles.source} target="_blank" rel="noreferrer">
+      <PillLink href={site.links.source} className={styles.source}>
         <CodeIcon />
         View source
-      </a>
+      </PillLink>
     </aside>
   );
 }
