@@ -1,0 +1,11 @@
+.main {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 6rem 1rem;
+}
+
+.note {
+  opacity: 0.6;
+}

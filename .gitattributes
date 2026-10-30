@@ -1,0 +1,2 @@
+# Normalize line endings so Windows (CRLF) and Linux/macOS (LF) checkouts produce identical commits
+* text=auto eol=lf
