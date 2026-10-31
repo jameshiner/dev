@@ -2,10 +2,10 @@
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   margin-top: 40px;
   list-style: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -19,10 +19,11 @@
 
 .navLink::before {
   content: '';
-  width: 20px;
+  width: 24px;
   height: 2px;
   border-radius: 2px;
-  background: var(--border);
+  /* Lighter than the text but visible, so inactive links still read as nav items. */
+  background: color-mix(in srgb, var(--text-muted) 50%, transparent);
   transition:
     width var(--transition),
     background-color var(--transition);
@@ -45,6 +46,8 @@
     flex-wrap: wrap;
     gap: 8px 22px;
     margin-top: 20px;
+    /* Smaller than desktop so all four tabs fit on one row. */
+    font-size: 14px;
   }
 
   .navLink {
