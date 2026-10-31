@@ -28,8 +28,9 @@
   --text: #121821;
   --text-muted: #5a6676;
   --accent: #1c6ea4;
-  --green: #3b7d23;
-  --amber: #b0650f;
+  /* Darker than the dark-theme hues so tags pass WCAG AA (4.5:1) on the light background. */
+  --green: #357320;
+  --amber: #9c590d;
 }
 
 *,
