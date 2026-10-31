@@ -1,8 +1,76 @@
 import type { Metadata } from 'next';
-import { Placeholder } from '@/components/Placeholder';
+import { Row } from '@/components/Row';
+import { Section } from '@/components/Section';
+import { SkillTags } from '@/components/Tag';
+import { education } from '@/data/education';
+import { jobs } from '@/data/jobs';
+import { type SkillType, skills } from '@/data/skills';
+import styles from './page.module.css';
 
 export const metadata: Metadata = { title: 'Experience' };
 
+// A Record, so adding a SkillType without a label fails the typecheck.
+const SKILL_LABELS: Record<SkillType, string> = {
+  language: 'Languages',
+  framework: 'Frameworks',
+  technology: 'Tools',
+  OS: 'Operating systems',
+};
+const SKILL_GROUPS = Object.entries(SKILL_LABELS) as [SkillType, string][];
+
+// "Mar 2022 – Dec 2023" → two lines, so every range wraps the same way in the date column.
+function breakAfterDash(date: string) {
+  return date.replace(' – ', ' –\n');
+}
+
 export default function Experience() {
-  return <Placeholder title="Experience" />;
+  return (
+    <>
+      <Section title="Experience" as="h1">
+        {jobs.map((job) => (
+          <Row
+            key={`${job.company}-${job.date}`}
+            date={breakAfterDash(job.date)}
+            title={job.role}
+            meta={job.company}
+            description={job.location}
+            tags={job.tags}
+          >
+            {job.bullets.length > 0 && (
+              <ul className={styles.bullets}>
+                {job.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            )}
+          </Row>
+        ))}
+      </Section>
+
+      <Section title="Skills">
+        <dl className={styles.skills}>
+          {SKILL_GROUPS.map(([type, label]) => (
+            <div key={type} className={styles.skillGroup}>
+              <dt className={styles.skillLabel}>{label}</dt>
+              <dd>
+                <SkillTags names={skills.filter((s) => s.type === type).map((s) => s.name)} />
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
+      <Section title="Education">
+        {education.map((item) => (
+          <Row
+            key={item.school}
+            date={item.date}
+            title={item.degree}
+            meta={item.school}
+            description={item.location}
+          />
+        ))}
+      </Section>
+    </>
+  );
 }
