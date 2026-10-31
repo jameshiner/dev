@@ -58,6 +58,14 @@ export function ChevronRightIcon(props: IconProps) {
   );
 }
 
+export function ChevronLeftIcon(props: IconProps) {
+  return (
+    <svg {...stroke} width={14} height={14} {...props}>
+      <path d="m15 18-6-6 6-6" />
+    </svg>
+  );
+}
+
 export function CodeIcon(props: IconProps) {
   return (
     <svg {...stroke} {...props}>
