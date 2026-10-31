@@ -15,6 +15,9 @@
   --font-display: var(--font-display-face), system-ui, sans-serif;
   --font-text: var(--font-text-face), system-ui, sans-serif;
 
+  /* Page side padding; the phone tab bar bleeds out by the same amount. */
+  --page-gutter: 32px;
+
   --radius: 14px;
   --transition: 0.2s ease;
 }

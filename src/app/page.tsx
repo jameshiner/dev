@@ -24,7 +24,7 @@ export default function Home() {
       {/* The sidebar shows the name visually; this gives the page its one h1. */}
       <h1 className={styles.visuallyHidden}>{site.name}</h1>
 
-      <Section title="Experience">
+      <Section title="Experience" className={styles.firstSection}>
         {jobs.slice(0, RECENT_JOBS).map((job) => (
           <Row
             key={`${job.company}-${job.date}`}
