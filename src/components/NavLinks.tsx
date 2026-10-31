@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navItems } from '@/data/site';
-import styles from './Sidebar.module.css';
+import styles from './NavLinks.module.css';
 
 export function NavLinks() {
   const pathname = usePathname();

@@ -1,0 +1,71 @@
+/* Desktop: vertical list; the line before the current link grows. */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.navLink::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--border);
+  transition:
+    width var(--transition),
+    background-color var(--transition);
+}
+
+.navLink:hover,
+.navLink[aria-current='page'] {
+  color: var(--text);
+}
+
+.navLink[aria-current='page']::before {
+  width: 44px;
+  background: var(--accent);
+}
+
+/* Stacked layout: a row of tabs, line under the current one. */
+@media (width < 860px), (height < 500px) {
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin-top: 20px;
+  }
+
+  .navLink {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .navLink::before {
+    width: 16px;
+  }
+
+  .navLink[aria-current='page']::before {
+    width: 100%;
+  }
+}
+
+/* Short desktop windows: tighter, so the sidebar fits. */
+@media (width >= 860px) and (500px <= height <= 900px) {
+  .nav {
+    gap: 10px;
+    margin-top: 28px;
+  }
+}
