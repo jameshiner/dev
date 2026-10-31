@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { DM_Sans, IBM_Plex_Sans } from 'next/font/google';
 import { Footer } from '@/components/layout/Footer';
@@ -42,6 +44,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
             <Footer />
           </div>
         </div>
+        {/* Vercel page views and Core Web Vitals; send nothing in development. */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
