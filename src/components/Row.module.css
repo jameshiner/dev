@@ -26,7 +26,7 @@
 .date {
   padding-top: 3px;
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 14px;
   font-variant-numeric: tabular-nums;
   /* Honors line breaks in the date string (the Experience page breaks ranges after the dash). */
   white-space: pre-line;
@@ -54,7 +54,7 @@
 .description {
   margin: 6px 0 10px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .description:last-child {

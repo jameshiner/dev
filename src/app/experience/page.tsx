@@ -5,6 +5,7 @@ import { SkillTags } from '@/components/Tag';
 import { education } from '@/data/education';
 import { jobs } from '@/data/jobs';
 import { type SkillType, skills } from '@/data/skills';
+import { stackedRange } from '@/lib/dates';
 import { pageMetadata } from '@/lib/metadata';
 import styles from './page.module.css';
 
@@ -24,11 +25,6 @@ const SKILL_LABELS: Record<SkillType, string> = {
 };
 const SKILL_GROUPS = Object.entries(SKILL_LABELS) as [SkillType, string][];
 
-// "Mar 2022 – Dec 2023" → two lines, so every range wraps the same way in the date column.
-function breakAfterDash(date: string) {
-  return date.replace(' – ', ' –\n');
-}
-
 export default function Experience() {
   return (
     <>
@@ -36,11 +32,12 @@ export default function Experience() {
         {jobs.map((job) => (
           <Row
             key={`${job.company}-${job.date}`}
-            date={breakAfterDash(job.date)}
+            date={stackedRange(job.date)}
             title={job.role}
             meta={job.company}
             description={job.location}
             tags={job.tags}
+            headingLevel="h2"
           >
             {job.bullets.length > 0 && (
               <ul className={styles.bullets}>
