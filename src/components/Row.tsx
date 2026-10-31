@@ -16,10 +16,22 @@ type RowProps = {
   href?: string;
   /** Extra content between the description and the tags, e.g. bullet points. */
   children?: ReactNode;
+  /** Title heading level: h3 under a section's h2 (default), h2 directly under a page's h1. */
+  headingLevel?: 'h2' | 'h3';
 };
 
 // Compact list row from the Granite mock: date or thumbnail on the left, details on the right.
-export function Row({ title, meta, description, tags, date, image, href, children }: RowProps) {
+export function Row({
+  title,
+  meta,
+  description,
+  tags,
+  date,
+  image,
+  href,
+  children,
+  headingLevel: Heading = 'h3',
+}: RowProps) {
   const content = (
     <>
       {image ? (
@@ -28,7 +40,7 @@ export function Row({ title, meta, description, tags, date, image, href, childre
         date && <p className={styles.date}>{date}</p>
       )}
       <div>
-        <h3 className={styles.title}>
+        <Heading className={styles.title}>
           {title}
           {meta && (
             <>
@@ -36,7 +48,7 @@ export function Row({ title, meta, description, tags, date, image, href, childre
               <span className={styles.meta}>{meta}</span>
             </>
           )}
-        </h3>
+        </Heading>
         {description && <p className={styles.description}>{description}</p>}
         {children}
         {tags && tags.length > 0 && <SkillTags names={tags} />}

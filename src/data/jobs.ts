@@ -15,7 +15,7 @@ export const jobs: Job[] = [
   {
     company: 'Metron',
     role: 'Senior Software Engineer',
-    date: 'Jul 2025 – Present',
+    date: 'Jul 2025 –',
     location: 'Remote',
     summary:
       'Navigation and URL redesign, billing and reporting tools, and shareable table and map views.',
