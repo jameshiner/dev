@@ -16,8 +16,8 @@ export default function Projects() {
   return (
     <Section title="Projects" as="h1">
       <div className={styles.grid}>
-        {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+        {projects.map((project, i) => (
+          <ProjectCard key={project.title} project={project} eager={i < 2} />
         ))}
       </div>
     </Section>

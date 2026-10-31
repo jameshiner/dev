@@ -4,7 +4,8 @@ import { CodeIcon, ExternalLinkIcon } from './icons';
 import { PillLink } from './PillLink';
 import styles from './ProjectCard.module.css';
 
-export function ProjectCard({ project }: { project: Project }) {
+/** `eager`: load the image right away (the first cards are the page's largest paint). */
+export function ProjectCard({ project, eager = false }: { project: Project; eager?: boolean }) {
   const { title, description, image, url, sourceUrl } = project;
 
   return (
@@ -15,6 +16,7 @@ export function ProjectCard({ project }: { project: Project }) {
         className={styles.thumb}
         // Approximate: ~290px cards at full width; low-res thumbnails, so close is fine.
         sizes="(min-width: 860px) 290px, (min-width: 560px) 50vw, 100vw"
+        loading={eager ? 'eager' : 'lazy'}
       />
       <div className={styles.body}>
         <h2 className={styles.title}>{title}</h2>
