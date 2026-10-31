@@ -22,6 +22,9 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 
 - `src/app/`: routes, layouts, and route-level CSS Modules. Components used by only one
   route sit next to its page (e.g. `photography/Gallery.tsx`).
+- `src/app/opengraph-image.tsx`, `icon.tsx`, `apple-icon.tsx`: generated link-preview card
+  and icons (must stay at the app root). Their drawing code, colors and IBM Plex Sans TTFs
+  (OFL) live in `src/app/_og/`.
 - `src/components/`: shared components (sidebar, footer, theme toggle, icons), each with
   its own CSS Module
 - `src/data/`: typed content (`site.ts` holds name, role, links and nav items; also jobs,
@@ -51,6 +54,9 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 ## Conventions
 
 - Server Components by default; add `"use client"` only for state, effects, or browser APIs.
+- Pages export `metadata = pageMetadata({ title, description, path })` from
+  `src/lib/metadata.ts`. Next merges metadata shallowly, so a page's `openGraph` replaces the
+  layout's; the helper keeps the preview image and sets the canonical URL.
 - Keep pages static. Don't add caching, revalidation, or dynamic config unless a page needs live data.
 - `cacheComponents` and `partialPrefetching` are on in `next.config.ts`: uncached dynamic
   data (request APIs, uncached fetches) must sit inside `<Suspense>` or use `'use cache'`.

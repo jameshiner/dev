@@ -5,9 +5,15 @@ import { SkillTags } from '@/components/Tag';
 import { education } from '@/data/education';
 import { jobs } from '@/data/jobs';
 import { type SkillType, skills } from '@/data/skills';
+import { pageMetadata } from '@/lib/metadata';
 import styles from './page.module.css';
 
-export const metadata: Metadata = { title: 'Experience' };
+export const metadata: Metadata = pageMetadata({
+  title: 'Experience',
+  description:
+    'Work history, skills and education: frontend engineering at Metron, Square and Wellsky.',
+  path: '/experience',
+});
 
 // A Record, so adding a SkillType without a label fails the typecheck.
 const SKILL_LABELS: Record<SkillType, string> = {
