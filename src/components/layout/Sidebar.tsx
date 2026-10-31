@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { site } from '@/data/site';
-import banner from '../../public/img/banner.jpeg';
-import { CodeIcon, GitHubIcon, LinkedInIcon } from './icons';
+import banner from '../../../public/img/banner.jpeg';
+import { CodeIcon, GitHubIcon, LinkedInIcon } from '@/components/ui/icons';
 import { NavLinks } from './NavLinks';
-import { PillLink } from './PillLink';
+import { PillLink } from '@/components/ui/PillLink';
 import { SidebarFrame } from './SidebarFrame';
 import { ThemeToggle } from './ThemeToggle';
 import styles from './Sidebar.module.css';

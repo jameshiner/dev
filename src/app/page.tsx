@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { MoreLink } from '@/components/MoreLink';
-import { Row } from '@/components/Row';
-import { Section } from '@/components/Section';
+import { MoreLink } from '@/components/ui/MoreLink';
+import { Row } from '@/components/ui/Row';
+import { Section } from '@/components/ui/Section';
 import { education } from '@/data/education';
 import { jobs } from '@/data/jobs';
 import { projects } from '@/data/projects';
@@ -24,7 +24,7 @@ export default function Home() {
       {/* The sidebar shows the name visually; this gives the page its one h1. */}
       <h1 className={styles.visuallyHidden}>{site.name}</h1>
 
-      <Section title="Experience" className={styles.firstSection}>
+      <Section title="Experience">
         {jobs.slice(0, RECENT_JOBS).map((job) => (
           <Row
             key={`${job.company}-${job.date}`}

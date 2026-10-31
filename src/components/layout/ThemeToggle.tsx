@@ -1,8 +1,8 @@
 'use client';
 
 import { useLayoutEffect } from 'react';
-import { MoonIcon, SunIcon } from './icons';
-import { THEME_STORAGE_KEY as STORAGE_KEY } from './theme';
+import { MoonIcon, SunIcon } from '@/components/ui/icons';
+import { THEME_STORAGE_KEY as STORAGE_KEY } from '@/lib/theme';
 import styles from './ThemeToggle.module.css';
 
 // Which icon shows is decided in CSS from data-theme, so the server and client render the same markup.

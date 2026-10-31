@@ -1,6 +1,6 @@
 .heading {
-  /* Rows below add their own 14px padding. */
-  margin-bottom: 4px;
+  /* The gap to whatever follows, the same for rows, cards and photos. */
+  margin-bottom: 18px;
   color: var(--accent);
   font-size: 15px;
   font-weight: 600;

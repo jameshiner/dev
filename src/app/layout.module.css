@@ -24,7 +24,9 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: 8px 0 40px;
+  /* Stacked: where every page's content starts below the tabs (clears their 20px fade).
+     Components own their spacing from there, so this is the one value to tune. */
+  padding: 20px 0 40px;
 }
 
 /* Desktop: full height keeps the footer at the bottom; stacked layouts skip it (no gap). */
