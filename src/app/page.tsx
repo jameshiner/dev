@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { MoreLink } from '@/components/MoreLink';
 import { Row } from '@/components/Row';
 import { Section } from '@/components/Section';
@@ -6,7 +7,14 @@ import { jobs } from '@/data/jobs';
 import { projects } from '@/data/projects';
 import { site } from '@/data/site';
 import { yearsOnly } from '@/lib/dates';
+import { baseOpenGraph } from '@/lib/metadata';
 import styles from './page.module.css';
+
+// Title and description come from the layout's defaults; home only adds its URL.
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+  openGraph: { ...baseOpenGraph, title: site.name, description: site.description, url: '/' },
+};
 
 const RECENT_JOBS = 3;
 
