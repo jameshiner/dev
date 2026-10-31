@@ -65,6 +65,9 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
   `(width < 860px), (height < 500px)` (the height part catches landscape phones). Use the
   same pair in every layout media query; CSS can't share them as a variable. Range syntax
   leaves no gap at fractional widths (zoom, display scaling), unlike 859px/860px.
+- Stacked layout: the sidebar `<aside>` is `display: contents`, so its parts sit in the page
+  grid and the nav can stay pinned (`position: sticky` only works inside its parent). Don't
+  give it a box or wrap the nav without keeping that.
 - Keep dependencies minimal; prefer platform features (e.g. `<details>` over a JS accordion).
 - Line endings are normalized to LF via `.gitattributes`.
 
