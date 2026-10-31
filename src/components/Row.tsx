@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from 'next/image';
+import type { ReactNode } from 'react';
 import { SkillTags } from './Tag';
 import styles from './Row.module.css';
 
@@ -13,10 +14,12 @@ type RowProps = {
   image?: { src: StaticImageData; alt: string };
   /** External link for the whole row; only linked rows get the hover highlight. */
   href?: string;
+  /** Extra content between the description and the tags, e.g. bullet points. */
+  children?: ReactNode;
 };
 
 // Compact list row from the Granite mock: date or thumbnail on the left, details on the right.
-export function Row({ title, meta, description, tags, date, image, href }: RowProps) {
+export function Row({ title, meta, description, tags, date, image, href, children }: RowProps) {
   const content = (
     <>
       {image ? (
@@ -35,6 +38,7 @@ export function Row({ title, meta, description, tags, date, image, href }: RowPr
           )}
         </h3>
         {description && <p className={styles.description}>{description}</p>}
+        {children}
         {tags && tags.length > 0 && <SkillTags names={tags} />}
       </div>
     </>

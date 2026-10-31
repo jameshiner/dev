@@ -13,6 +13,22 @@ export type Job = {
 // Newest first.
 export const jobs: Job[] = [
   {
+    company: 'Metron',
+    role: 'Senior Software Engineer',
+    date: 'Jul 2025 – Present',
+    location: 'Remote',
+    summary:
+      'Navigation and URL redesign, billing and reporting tools, and shareable table and map views.',
+    tags: ['React', 'TypeScript', 'Go'],
+    bullets: [
+      "Led the app's navigation and URL rework: a new left-nav layout with clean, readable URLs. Built over ~40 tickets behind a feature flag, with redirects from every old URL, and launched to all users.",
+      'Built the frontend for a billing and reporting MVP: editable billing grids, file upload and replace, an unsaved-changes guard, highlighting of cells that failed to save, and report generation. Also built the backend endpoints they needed.',
+      'Designed and led moving table and map state into the URL, so filters, sorting and pages survive a reload and can be shared as links. Bad or stale links fall back safely instead of breaking the page.',
+      'Made the app work on phones: responsive charts, tables, modals and navigation, including a sidebar that becomes a drawer on small screens.',
+      'Worked across the full stack in Go and PostgreSQL: filters, sorting and exports for the meter and map APIs. Also added a CI test step and role-based landing pages driven by Cognito user groups.',
+    ],
+  },
+  {
     company: 'Square',
     role: 'Senior Software Engineer',
     date: 'Mar 2022 – Dec 2023',
@@ -60,10 +76,8 @@ export const jobs: Job[] = [
     date: 'Sept 2015 – Sept 2017',
     location: 'Newark, DE',
     summary: 'Master data loading and SampleManager LIMS training material.',
-    tags: ['SQL'],
-    bullets: [
-      'Master data loading using database staging tables and SQL Transformations.',
-      'Created end-user development presentation to train new employees on SampleManager LIMS',
-    ],
+    // Kept short: it marks the time, but wasn't a development role.
+    tags: [],
+    bullets: [],
   },
 ];

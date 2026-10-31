@@ -28,6 +28,8 @@
   color: var(--text-muted);
   font-size: 13px;
   font-variant-numeric: tabular-nums;
+  /* Honors line breaks in the date string (the Experience page breaks ranges after the dash). */
+  white-space: pre-line;
 }
 
 .thumb {
@@ -64,5 +66,10 @@
   .row:not(.withImage) {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  /* Full width here, so date ranges fit on one line. */
+  .date {
+    white-space: normal;
   }
 }

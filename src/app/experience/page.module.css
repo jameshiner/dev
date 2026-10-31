@@ -1,0 +1,42 @@
+.bullets {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 12px;
+  padding-left: 18px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.bullets:last-child {
+  margin-bottom: 0;
+}
+
+.bullets li::marker {
+  color: var(--accent);
+}
+
+/* Same columns as Row: label where the date sits, tags beside it. */
+.skills {
+  display: grid;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.skillGroup {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 20px;
+}
+
+.skillLabel {
+  padding-top: 3px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .skillGroup {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
