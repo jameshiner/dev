@@ -20,14 +20,19 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 
 ## Structure
 
-- `src/app/`: routes, layouts, and route-level CSS Modules
+- `src/app/`: routes, layouts, and route-level CSS Modules. Components used by only one
+  route sit next to its page (e.g. `photography/Gallery.tsx`).
 - `src/components/`: shared components (sidebar, footer, theme toggle, icons), each with
   its own CSS Module
 - `src/data/`: typed content (`site.ts` holds name, role, links and nav items; also jobs,
   skills, education, projects)
 - `src/lib/`: small helpers (e.g. date formatting)
 - `src/app/api/*/route.ts`: server-side endpoints, when an API key or server fetch is needed
-- `public/img/`: static images
+- `public/img/`: static images, imported statically from `src/data/` (sizes and blur
+  placeholders come from the import).
+- `public/img/photos/`: gallery photos, named `CODE_YYYYMMDD_NN.jpg` (four-letter bird
+  banding code). Commit them pre-sized: 2000px long edge, JPEG quality 80, metadata stripped
+  except the color profile. Add each one to `src/data/photos.ts`.
 - Standalone sub-projects get their own route folder and `layout.tsx` so they don't
   inherit the main site's styles.
 - `.claude/skills/`: `/start-ticket` and `/wrap-up-ticket` for the workflow below.
