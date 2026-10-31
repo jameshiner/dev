@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { ProjectCard } from '@/components/ProjectCard';
-import { Section } from '@/components/Section';
+import { ProjectCard } from '@/components/ui/ProjectCard';
+import { Section } from '@/components/ui/Section';
 import { projects } from '@/data/projects';
 import { pageMetadata } from '@/lib/metadata';
 import styles from './page.module.css';

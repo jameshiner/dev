@@ -2,11 +2,11 @@
 
 import Image from 'next/image';
 import { useRef, useState, type KeyboardEvent } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@/components/icons';
+import { ChevronLeftIcon, ChevronRightIcon } from '@/components/ui/icons';
 import type { Photo } from '@/data/photos';
-import styles from './page.module.css';
+import styles from './Gallery.module.css';
 
-// Column widths: see .gallery in page.module.css.
+// Column widths: see .gallery in Gallery.module.css.
 const THUMB_SIZES =
   '(min-width: 1014px) 290px, (min-width: 860px) 500px, (min-width: 560px) 50vw, 100vw';
 

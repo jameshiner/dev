@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { Row } from '@/components/Row';
-import { Section } from '@/components/Section';
-import { SkillTags } from '@/components/Tag';
+import { Row } from '@/components/ui/Row';
+import { Section } from '@/components/ui/Section';
+import { SkillTags } from '@/components/ui/Tag';
 import { education } from '@/data/education';
 import { jobs } from '@/data/jobs';
 import { type SkillType, skills } from '@/data/skills';

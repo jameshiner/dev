@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { DM_Sans, IBM_Plex_Sans } from 'next/font/google';
-import { Footer } from '@/components/Footer';
-import { Sidebar } from '@/components/Sidebar';
-import { themeScript } from '@/components/theme';
+import { Footer } from '@/components/layout/Footer';
+import { Sidebar } from '@/components/layout/Sidebar';
+import { themeScript } from '@/lib/theme';
 import { site } from '@/data/site';
 import { baseOpenGraph, siteUrl } from '@/lib/metadata';
 import './globals.css';
