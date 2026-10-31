@@ -61,6 +61,10 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 - `cacheComponents` and `partialPrefetching` are on in `next.config.ts`: uncached dynamic
   data (request APIs, uncached fetches) must sit inside `<Suspense>` or use `'use cache'`.
 - Keep global CSS to tokens and resets; put component styles in CSS Modules.
+- Layout breakpoint: two columns at `(width >= 860px) and (height >= 500px)`, stacked at
+  `(width < 860px), (height < 500px)` (the height part catches landscape phones). Use the
+  same pair in every layout media query; CSS can't share them as a variable. Range syntax
+  leaves no gap at fractional widths (zoom, display scaling), unlike 859px/860px.
 - Keep dependencies minimal; prefer platform features (e.g. `<details>` over a JS accordion).
 - Line endings are normalized to LF via `.gitattributes`.
 

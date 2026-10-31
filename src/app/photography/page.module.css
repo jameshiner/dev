@@ -3,7 +3,9 @@
 .gallery {
   columns: 240px 2;
   column-gap: 16px;
-  margin-top: 8px;
+  /* Matches where the first Row's text visibly starts on Experience (14px padding + ~8px
+     above the letters), so every page's content starts at the same height. */
+  margin-top: 22px;
 }
 
 .item {

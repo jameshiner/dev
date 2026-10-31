@@ -4,9 +4,8 @@
   padding: 72px 0 48px;
 }
 
-/* Desktop: stays put while the content column scrolls. Scrolls on its own when the window is
-   too short to fit it (stopgap until BOX-25). */
-@media (min-width: 860px) {
+/* Desktop: stays put while content scrolls; scrolls itself only in very short windows. */
+@media (width >= 860px) and (height >= 500px) {
   .sidebar {
     position: sticky;
     top: 0;
@@ -46,45 +45,7 @@
   color: var(--text-muted);
 }
 
-.nav {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 40px;
-  list-style: none;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.navLink {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--text-muted);
-  transition: color var(--transition);
-}
-
-.navLink::before {
-  content: '';
-  width: 20px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--border);
-  transition:
-    width var(--transition),
-    background-color var(--transition);
-}
-
-.navLink:hover,
-.navLink[aria-current='page'] {
-  color: var(--text);
-}
-
-.navLink[aria-current='page']::before {
-  width: 44px;
-  background: var(--accent);
-}
-
+/* Desktop: labeled socials and theme toggle, pushed to the bottom. */
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -94,7 +55,143 @@
   padding-top: 40px;
 }
 
+.mobileActions {
+  display: none;
+}
+
 .source {
   align-self: flex-start;
   margin-top: 10px;
+}
+
+/* Banner and bio. Grid rows 1fr → 0fr animates the collapse (height: auto can't animate). */
+.collapse {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.collapseInner {
+  min-height: 0;
+}
+
+/* Stacked layout: same header on every page; off Home, the banner and bio slide away. */
+@media (width < 860px), (height < 500px) {
+  /* Compact pages tighten the top, animated with the slide. */
+  .sidebar {
+    padding: 28px 0 8px;
+    transition: padding-top 0.35s ease;
+  }
+
+  .sidebar[data-compact] {
+    padding-top: 24px;
+  }
+
+  .collapse {
+    transition:
+      grid-template-rows 0.35s ease,
+      opacity 0.25s ease,
+      visibility 0s;
+  }
+
+  .collapseInner {
+    overflow: hidden;
+  }
+
+  .sidebar[data-compact] .collapse {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    /* Out of the tab order and screen readers once collapsed. */
+    visibility: hidden;
+    transition:
+      grid-template-rows 0.35s ease,
+      opacity 0.25s ease,
+      visibility 0s 0.35s;
+  }
+
+  .banner {
+    aspect-ratio: 3;
+    /* Visually matches the 28px above the banner. */
+    margin-bottom: 24px;
+  }
+
+  .nameRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .name {
+    margin-top: 0;
+    font-size: 28px;
+  }
+
+  .role {
+    margin-top: 4px;
+    font-size: 16px;
+  }
+
+  /* Negative margin: the 36px buttons don't make the 28px name row taller. */
+  .mobileActions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+    margin-block: -4px;
+  }
+
+  .mobileActions .iconButton {
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+
+  .lead {
+    max-width: none;
+    margin-top: 10px;
+  }
+
+  /* Replaced by the icon buttons beside the name. */
+  .actions {
+    display: none;
+  }
+
+  /* .sidebar prefix outranks PillLink's own display rule. */
+  .sidebar .source {
+    display: none;
+  }
+}
+
+/* Short desktop windows (e.g. 1366×768): shorter banner, tighter spacing (nav too). */
+@media (width >= 860px) and (500px <= height <= 900px) {
+  .sidebar {
+    padding: 48px 0 32px;
+  }
+
+  .banner {
+    aspect-ratio: 2.2;
+  }
+
+  .name {
+    margin-top: 18px;
+  }
+
+  .actions {
+    padding-top: 24px;
+  }
+}
+
+/* Very short windows: drop the banner so name, nav and actions still fit. */
+@media (width >= 860px) and (500px <= height <= 720px) {
+  .sidebar {
+    padding-top: 40px;
+  }
+
+  .banner {
+    display: none;
+  }
+
+  .name {
+    margin-top: 0;
+  }
 }

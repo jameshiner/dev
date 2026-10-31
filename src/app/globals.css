@@ -49,6 +49,8 @@ body {
 /* Reserve the scrollbar's space on short pages too, so the layout doesn't shift between pages. */
 html {
   scrollbar-gutter: stable;
+  /* No gray/blue flash on tap in mobile browsers; links and buttons have their own states. */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {

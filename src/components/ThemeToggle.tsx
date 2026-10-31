@@ -6,7 +6,7 @@ import { THEME_STORAGE_KEY as STORAGE_KEY } from './theme';
 import styles from './ThemeToggle.module.css';
 
 // Which icon shows is decided in CSS from data-theme, so the server and client render the same markup.
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string }) {
   // In dev, Strict Mode's remount resets <html> attributes; re-apply the saved theme. No-op in production.
   useLayoutEffect(() => {
     try {
@@ -26,7 +26,12 @@ export function ThemeToggle() {
   }
 
   return (
-    <button type="button" className={styles.toggle} onClick={toggle} aria-label="Toggle theme">
+    <button
+      type="button"
+      className={className ? `${styles.toggle} ${className}` : styles.toggle}
+      onClick={toggle}
+      aria-label="Toggle theme"
+    >
       <SunIcon className={styles.sun} />
       <MoonIcon className={styles.moon} />
     </button>

@@ -1,8 +1,21 @@
 .heading {
-  margin-bottom: 12px;
+  /* Rows below add their own 14px padding. */
+  margin-bottom: 4px;
   color: var(--accent);
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+/* Stacked layout: the current tab names the page; hide the title except from screen readers. */
+@media (width < 860px), (height < 500px) {
+  .pageTitle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
