@@ -16,6 +16,9 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 - Content: typed `.ts` data files (no CMS or database)
 - Images: `next/image`. Icons: inline SVGs. Animation: CSS keyframes that respect
   `prefers-reduced-motion`.
+- Analytics: Vercel Web Analytics and Speed Insights (`<Analytics />` and `<SpeedInsights />`
+  in the root layout; both are enabled per project in the Vercel dashboard and send nothing in
+  development).
 - Hosting: Vercel (Hobby plan). Node 24 is pinned via `.nvmrc` and `engines`.
 
 ## Structure
