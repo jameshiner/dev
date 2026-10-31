@@ -73,7 +73,7 @@ export function Sidebar() {
 
       <PillLink href={site.links.source} className={styles.source}>
         <CodeIcon />
-        View source
+        Source
       </PillLink>
     </SidebarFrame>
   );
