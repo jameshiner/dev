@@ -21,15 +21,20 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 ## Structure
 
 - `src/app/`: routes, layouts, and route-level CSS Modules. Components used by only one
-  route sit next to its page (e.g. `photography/Gallery.tsx`).
+  route sit next to its page with their own CSS Module (e.g. `photography/Gallery.tsx` +
+  `Gallery.module.css`).
 - `src/app/opengraph-image.tsx`, `icon.tsx`, `apple-icon.tsx`: generated link-preview card
   and icons (must stay at the app root). Their drawing code, colors and IBM Plex Sans TTFs
   (OFL) live in `src/app/_og/`.
-- `src/components/`: shared components (sidebar, footer, theme toggle, icons), each with
-  its own CSS Module
+- `src/components/`: shared components, each with its own CSS Module. No per-component
+  folders or `index.ts` barrels.
+  - `layout/`: the page shell, used once from the root layout (Sidebar, SidebarFrame,
+    NavLinks, ThemeToggle, Footer)
+  - `ui/`: building blocks pages compose (Section, SectionHeading, Row, Tag, PillLink,
+    MoreLink, ProjectCard, icons)
 - `src/data/`: typed content (`site.ts` holds name, role, links and nav items; also jobs,
   skills, education, projects)
-- `src/lib/`: small helpers (e.g. date formatting)
+- `src/lib/`: small non-component helpers (dates, metadata, the theme key and no-flash script)
 - `src/app/api/*/route.ts`: server-side endpoints, when an API key or server fetch is needed
 - `public/img/`: static images, imported statically from `src/data/` (sizes and blur
   placeholders come from the import).
@@ -61,6 +66,10 @@ Personal website (résumé, projects, photography) built with Next.js and deploy
 - `cacheComponents` and `partialPrefetching` are on in `next.config.ts`: uncached dynamic
   data (request APIs, uncached fetches) must sit inside `<Suspense>` or use `'use cache'`.
 - Keep global CSS to tokens and resets; put component styles in CSS Modules.
+- Spacing has one owner: `.content` padding sets where page content starts, `SectionHeading`
+  owns the gap below it, `Section` the gap between sections, and `Row` bleeds its own hover
+  padding after a heading. Pages don't add offsets to line things up; if one component needs
+  a number tuned to match another, the spacing belongs somewhere else.
 - Layout breakpoint: two columns at `(width >= 860px) and (height >= 500px)`, stacked at
   `(width < 860px), (height < 500px)` (the height part catches landscape phones). Use the
   same pair in every layout media query; CSS can't share them as a variable. Range syntax
