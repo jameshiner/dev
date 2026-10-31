@@ -39,15 +39,49 @@
   background: var(--accent);
 }
 
-/* Stacked layout: a row of tabs, line under the current one. */
+/* Stacked layout: one row of tabs, line under the current one, pinned to the top of the
+   screen while the rest of the header scrolls away. */
 @media (width < 860px), (height < 500px) {
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    /* Full-bleed background over the page's side padding, so content scrolling under it
+       doesn't show at the edges. Margin + padding = the 20px gap above the tabs. */
+    margin: 2px calc(-1 * var(--page-gutter)) 0;
+    padding: 18px var(--page-gutter) 8px;
+    background: var(--bg);
+  }
+
+  /* Content fades out as it scrolls under the bar instead of meeting a hard edge. Eased stops
+     (solid at first, then tapering) look even; a straight fade reads as a shadow. */
+  .bar::after {
+    --fade: var(--bg);
+
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    height: 20px;
+    background: linear-gradient(
+      var(--fade) 0%,
+      var(--fade) 15%,
+      color-mix(in srgb, var(--fade) 75%, transparent) 35%,
+      color-mix(in srgb, var(--fade) 40%, transparent) 60%,
+      color-mix(in srgb, var(--fade) 12%, transparent) 85%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
   .nav {
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px 22px;
-    margin-top: 20px;
-    /* Smaller than desktop so all four tabs fit on one row. */
-    font-size: 14px;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 0;
+    /* Shrinks slightly on narrow phones so all four tabs always fit on one row. */
+    font-size: clamp(12.5px, 3.8vw, 14px);
   }
 
   .navLink {

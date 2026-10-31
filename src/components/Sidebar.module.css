@@ -4,13 +4,19 @@
   padding: 72px 0 48px;
 }
 
-/* Desktop: stays put while content scrolls; scrolls itself only in very short windows. */
+/* Desktop: stays put while content scrolls; scrolls itself only in very short windows, with
+   its scrollbar hidden so it doesn't sit beside the page's. */
 @media (width >= 860px) and (height >= 500px) {
   .sidebar {
     position: sticky;
     top: 0;
     height: 100dvh;
     overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -76,16 +82,13 @@
 
 /* Stacked layout: same header on every page; off Home, the banner and bio slide away. */
 @media (width < 860px), (height < 500px) {
-  /* Compact pages tighten the top, animated with the slide. */
+  /* No box of its own: the header's parts join the page grid, so the nav can stay pinned while
+     the rest scrolls away (sticky only works inside its parent). */
   .sidebar {
-    padding: 28px 0 8px;
-    transition: padding-top 0.35s ease;
+    display: contents;
   }
 
-  .sidebar[data-compact] {
-    padding-top: 24px;
-  }
-
+  /* 0.35s: NavLinks.tsx waits for this slide (SLIDE_MS); keep them in step. */
   .collapse {
     transition:
       grid-template-rows 0.35s ease,
@@ -108,10 +111,11 @@
       visibility 0s 0.35s;
   }
 
+  /* 28px above on Home (24px page padding + 4px here); the 4px slides away with the banner.
+     The 24px below visually matches. */
   .banner {
     aspect-ratio: 3;
-    /* Visually matches the 28px above the banner. */
-    margin-bottom: 24px;
+    margin: 4px 0 24px;
   }
 
   .nameRow {

@@ -2,7 +2,14 @@
   display: grid;
   max-width: 1180px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--page-gutter);
+}
+
+@media (width < 860px), (height < 500px) {
+  /* Room above the header. */
+  .shell {
+    padding-top: 24px;
+  }
 }
 
 /* Two columns at 860px+ wide and 500px+ tall; stacked otherwise (incl. landscape phones). */
